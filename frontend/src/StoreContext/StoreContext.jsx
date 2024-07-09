@@ -46,7 +46,7 @@ const StoreContextProvider = (props) => {
 
 
 
-    const url = 'http://localhost:4000'
+    const url = 'https://fooddelivery-backend-z6s2.onrender.com'
     const [token, setToken] = useState('')
 
 
