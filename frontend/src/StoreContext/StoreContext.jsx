@@ -46,7 +46,7 @@ const StoreContextProvider = (props) => {
 
 
 
-    const url = ''
+    const url = 'http://localhost:4000'
     const [token, setToken] = useState('')
 
 
