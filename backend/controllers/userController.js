@@ -4,7 +4,6 @@ import bcrypt from 'bcryptjs'
 import validator from 'validator'
 
 
-//Log In User
 const loginUser = async (req, res) => {
     const {email,password}=req.body
     const user = await userModel.findOne({ email });
@@ -25,23 +24,19 @@ const loginUser = async (req, res) => {
 
     }
 }
-// create Token
 const createToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET)
 }
 
-// register User
 const registerUser = async (req, res) => {
     const { name, password, email } = req.body;
     try {
 
-        //checking user already exist or not
         const exists = await userModel.findOne({ email })
         if (exists) {
             return res.json({ success: false, message: "User already exists" })
         }
 
-        // validating email format & strong password
         if (!validator.isEmail(email)) {
             return res.json({ success: false, message: "Enter a valid email" })
         }
@@ -49,7 +44,6 @@ const registerUser = async (req, res) => {
             return res.json({ success: false, message: "Enter Strong Password" })
         }
 
-        //hashing password
         const salt = await bcrypt.genSalt(10)
         const hashedPassword = await bcrypt.hash(password, salt);
         const newUser = new userModel({
