@@ -5,8 +5,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
-
-// place order for frontend user
 const placeOrder = async (req, res) => {
 
     const frontend_url='http://localhost:5173'
@@ -61,11 +59,7 @@ const placeOrder = async (req, res) => {
 
     }
 }
-
-
-
-//verify order
- const verifyOrder=async(req,res)=>{
+const verifyOrder=async(req,res)=>{
      const {orderId,success}=req.body
 
      try{
@@ -85,7 +79,6 @@ const placeOrder = async (req, res) => {
  }
 
 
- //users Order
  const userOrders=async(req,res)=>{
     try{
     const orders=await orderModel.find({userId:req.body.userId})
@@ -97,7 +90,6 @@ const placeOrder = async (req, res) => {
 
  }
 
- // get the list of orders
  const ordersList=async(req,res)=>{
     try{
       const orders= await orderModel.find({})
@@ -110,8 +102,6 @@ const placeOrder = async (req, res) => {
  }
 
 
-
- // update Order Status
 const updateStatus=async(req,res)=>{
     try{
          await orderModel.findByIdAndUpdate(req.body.orderId,{status:req.body.status})
