@@ -6,6 +6,8 @@ import userRouter from './routes/userRoute.js'
 import cartRouter from './routes/cartRoute.js'
 import orderRouter from './routes/orderRoute.js'
 import dotenv from 'dotenv';
+import connectCloudinary from './config/cloudinary.js';
+
 dotenv.config();
 
 //app config
@@ -14,6 +16,7 @@ const app=express()
 const port=process.env.PORT||4000;
 //DB connection
 connectDB()
+connectCloudinary()
 // middleware
 
 app.use(express.json())
@@ -21,7 +24,6 @@ app.use(cors())
 
 //api end points
 app.use('/api/food',foodRouter)
-app.use('/images',express.static('uploads'))
 app.use('/api/user',userRouter)
 app.use('/api/cart',cartRouter)
 app.use('/api/order', orderRouter)
