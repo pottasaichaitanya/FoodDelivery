@@ -10,7 +10,7 @@ import Orders from './pages/Orders/Orders'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
-  const url='https://fooddelivery-backend-z6s2.onrender.com'
+  const url='https://food-delivery-git-main-potta-sai-chaitanyas-projects.vercel.app/'
   return (
     <div>
       <ToastContainer/>
