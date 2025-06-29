@@ -46,7 +46,7 @@ const StoreContextProvider = (props) => {
 
 
 
-    const url = 'https://fooddelivery-backend-z6s2.onrender.com'
+    const url = 'https://food-delivery-git-main-potta-sai-chaitanyas-projects.vercel.app'
     const [token, setToken] = useState('')
 
 
